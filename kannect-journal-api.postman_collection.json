@@ -1,0 +1,543 @@
+{
+	"info": {
+		"_postman_id": "1234567-89ab-cdef-0123-456789abcdef",
+		"name": "Kannect Journal API",
+		"description": "API collection for journaling, habit tracking, goal planning, and sentiment analysis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000/api/v1",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user@example.com\",\n    \"user_name\": \"testuser\",\n    \"password\": \"password123\",\n    \"full_name\": \"Test User\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/register",
+							"host": ["{{base_url}}"],
+							"path": ["auth", "register"]
+						}
+					}
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "user@example.com"
+								},
+								{
+									"key": "password",
+									"value": "password123"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": ["{{base_url}}"],
+							"path": ["auth", "login"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Journal",
+			"item": [
+				{
+					"name": "Create Journal Entry",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"My Journal Entry\",\n    \"content\": \"Today was a great day!\",\n    \"mood\": \"happy\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/journal",
+							"host": ["{{base_url}}"],
+							"path": ["journal"]
+						}
+					}
+				},
+				{
+					"name": "Get All Journal Entries",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/journal?skip=0&limit=100",
+							"host": ["{{base_url}}"],
+							"path": ["journal"],
+							"query": [
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Journal Entry",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/journal/1",
+							"host": ["{{base_url}}"],
+							"path": ["journal", "1"]
+						}
+					}
+				},
+				{
+					"name": "Update Journal Entry",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Updated Title\",\n    \"content\": \"Updated content\",\n    \"mood\": \"excited\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/journal/1",
+							"host": ["{{base_url}}"],
+							"path": ["journal", "1"]
+						}
+					}
+				},
+				{
+					"name": "Delete Journal Entry",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/journal/1",
+							"host": ["{{base_url}}"],
+							"path": ["journal", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Habits",
+			"item": [
+				{
+					"name": "Create Habit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Morning Exercise\",\n    \"description\": \"30 minutes of exercise every morning\",\n    \"frequency\": \"daily\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/habits",
+							"host": ["{{base_url}}"],
+							"path": ["habits"]
+						}
+					}
+				},
+				{
+					"name": "Get All Habits",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/habits?skip=0&limit=100",
+							"host": ["{{base_url}}"],
+							"path": ["habits"],
+							"query": [
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Habit",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/habits/1",
+							"host": ["{{base_url}}"],
+							"path": ["habits", "1"]
+						}
+					}
+				},
+				{
+					"name": "Update Habit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated Habit\",\n    \"description\": \"Updated description\",\n    \"frequency\": \"weekly\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/habits/1",
+							"host": ["{{base_url}}"],
+							"path": ["habits", "1"]
+						}
+					}
+				},
+				{
+					"name": "Delete Habit",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/habits/1",
+							"host": ["{{base_url}}"],
+							"path": ["habits", "1"]
+						}
+					}
+				},
+				{
+					"name": "Log Habit Completion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"habit_id\": 1,\n    \"completed_at\": \"2024-03-19T10:00:00Z\",\n    \"notes\": \"Completed morning exercise\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/habits/log",
+							"host": ["{{base_url}}"],
+							"path": ["habits", "log"]
+						}
+					}
+				},
+				{
+					"name": "Get Habit Logs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/habits/log/1?days=30",
+							"host": ["{{base_url}}"],
+							"path": ["habits", "log", "1"],
+							"query": [
+								{
+									"key": "days",
+									"value": "30"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Habit Stats",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/habits/stats?days=30",
+							"host": ["{{base_url}}"],
+							"path": ["habits", "stats"],
+							"query": [
+								{
+									"key": "days",
+									"value": "30"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Goals",
+			"item": [
+				{
+					"name": "Create Goal",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Learn Python\",\n    \"description\": \"Master Python programming\",\n    \"target_date\": \"2024-12-31\",\n    \"status\": \"not-started\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/goals",
+							"host": ["{{base_url}}"],
+							"path": ["goals"]
+						}
+					}
+				},
+				{
+					"name": "Get All Goals",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/goals?skip=0&limit=100",
+							"host": ["{{base_url}}"],
+							"path": ["goals"],
+							"query": [
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Goal",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/goals/1",
+							"host": ["{{base_url}}"],
+							"path": ["goals", "1"]
+						}
+					}
+				},
+				{
+					"name": "Update Goal",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Updated Goal\",\n    \"description\": \"Updated description\",\n    \"target_date\": \"2024-12-31\",\n    \"status\": \"in-progress\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/goals/1",
+							"host": ["{{base_url}}"],
+							"path": ["goals", "1"]
+						}
+					}
+				},
+				{
+					"name": "Delete Goal",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/goals/1",
+							"host": ["{{base_url}}"],
+							"path": ["goals", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "Get Dashboard Stats",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/dashboard/stats?days=30",
+							"host": ["{{base_url}}"],
+							"path": ["dashboard", "stats"],
+							"query": [
+								{
+									"key": "days",
+									"value": "30"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Sentiment Summary",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/dashboard/sentiment/summary?days=30",
+							"host": ["{{base_url}}"],
+							"path": ["dashboard", "sentiment", "summary"],
+							"query": [
+								{
+									"key": "days",
+									"value": "30"
+								}
+							]
+						}
+					}
+				}
+			]
+		}
+	]
+} 
