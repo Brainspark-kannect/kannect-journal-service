@@ -10,8 +10,8 @@ from app.services.journal import create_journal_entry, get_journal_entries, get_
 from app.config.settings import settings
 
 router = APIRouter(
-    prefix=f"{settings.API_V1_STR}/journal",
-    tags=["Journal"],
+    prefix=f"{settings.API_V1_STR}/entries",
+    tags=["Journal Entries"],
 )
 
 @router.post("/", response_model=JournalEntry)

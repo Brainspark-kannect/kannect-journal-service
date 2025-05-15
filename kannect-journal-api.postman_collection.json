@@ -8,8 +8,11 @@
 	"variable": [
 		{
 			"key": "base_url",
-			"value": "http://localhost:8000/api/v1",
-			"type": "string"
+			"value": "http://localhost:8000"
+		},
+		{
+			"key": "access_token",
+			"value": "your_access_token_here"
 		}
 	],
 	"item": [
@@ -17,7 +20,7 @@
 			"name": "Authentication",
 			"item": [
 				{
-					"name": "Register User",
+					"name": "Register",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -28,12 +31,12 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"user@example.com\",\n    \"user_name\": \"testuser\",\n    \"password\": \"password123\",\n    \"full_name\": \"Test User\"\n}"
+							"raw": "{\n    \"email\": \"user@example.com\",\n    \"user_name\": \"username\",\n    \"password\": \"password123\",\n    \"first_name\": \"John\",\n    \"last_name\": \"Doe\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/auth/register",
+							"raw": "{{base_url}}/journal/auth/register",
 							"host": ["{{base_url}}"],
-							"path": ["auth", "register"]
+							"path": ["journal", "auth", "register"]
 						}
 					}
 				},
@@ -61,19 +64,19 @@
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/auth/login",
+							"raw": "{{base_url}}/journal/auth/login",
 							"host": ["{{base_url}}"],
-							"path": ["auth", "login"]
+							"path": ["journal", "auth", "login"]
 						}
 					}
 				}
 			]
 		},
 		{
-			"name": "Journal",
+			"name": "Journal Entries",
 			"item": [
 				{
-					"name": "Create Journal Entry",
+					"name": "Create Entry",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -88,17 +91,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"My Journal Entry\",\n    \"content\": \"Today was a great day!\",\n    \"mood\": \"happy\"\n}"
+							"raw": "{\n    \"content\": \"Today was a great day!\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/journal",
+							"raw": "{{base_url}}/journal/entries",
 							"host": ["{{base_url}}"],
-							"path": ["journal"]
+							"path": ["journal", "entries"]
 						}
 					}
 				},
 				{
-					"name": "Get All Journal Entries",
+					"name": "Get All Entries",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -108,9 +111,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/journal?skip=0&limit=100",
+							"raw": "{{base_url}}/journal/entries?skip=0&limit=100",
 							"host": ["{{base_url}}"],
-							"path": ["journal"],
+							"path": ["journal", "entries"],
 							"query": [
 								{
 									"key": "skip",
@@ -125,7 +128,7 @@
 					}
 				},
 				{
-					"name": "Get Journal Entry",
+					"name": "Get Entry",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -135,14 +138,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/journal/1",
+							"raw": "{{base_url}}/journal/entries/{id}",
 							"host": ["{{base_url}}"],
-							"path": ["journal", "1"]
+							"path": ["journal", "entries", "{id}"]
 						}
 					}
 				},
 				{
-					"name": "Update Journal Entry",
+					"name": "Update Entry",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -157,17 +160,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"Updated Title\",\n    \"content\": \"Updated content\",\n    \"mood\": \"excited\"\n}"
+							"raw": "{\n    \"content\": \"Updated journal entry content\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/journal/1",
+							"raw": "{{base_url}}/journal/entries/{id}",
 							"host": ["{{base_url}}"],
-							"path": ["journal", "1"]
+							"path": ["journal", "entries", "{id}"]
 						}
 					}
 				},
 				{
-					"name": "Delete Journal Entry",
+					"name": "Delete Entry",
 					"request": {
 						"method": "DELETE",
 						"header": [
@@ -177,9 +180,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/journal/1",
+							"raw": "{{base_url}}/journal/entries/{id}",
 							"host": ["{{base_url}}"],
-							"path": ["journal", "1"]
+							"path": ["journal", "entries", "{id}"]
 						}
 					}
 				}
@@ -204,12 +207,12 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Morning Exercise\",\n    \"description\": \"30 minutes of exercise every morning\",\n    \"frequency\": \"daily\"\n}"
+							"raw": "{\n    \"name\": \"Exercise\",\n    \"description\": \"Daily workout routine\",\n    \"frequency\": \"daily\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/habits",
+							"raw": "{{base_url}}/journal/habits",
 							"host": ["{{base_url}}"],
-							"path": ["habits"]
+							"path": ["journal", "habits"]
 						}
 					}
 				},
@@ -224,19 +227,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/habits?skip=0&limit=100",
+							"raw": "{{base_url}}/journal/habits",
 							"host": ["{{base_url}}"],
-							"path": ["habits"],
-							"query": [
-								{
-									"key": "skip",
-									"value": "0"
-								},
-								{
-									"key": "limit",
-									"value": "100"
-								}
-							]
+							"path": ["journal", "habits"]
 						}
 					}
 				},
@@ -251,56 +244,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/habits/1",
+							"raw": "{{base_url}}/journal/habits/{id}",
 							"host": ["{{base_url}}"],
-							"path": ["habits", "1"]
+							"path": ["journal", "habits", "{id}"]
 						}
 					}
 				},
 				{
-					"name": "Update Habit",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{access_token}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"Updated Habit\",\n    \"description\": \"Updated description\",\n    \"frequency\": \"weekly\"\n}"
-						},
-						"url": {
-							"raw": "{{base_url}}/habits/1",
-							"host": ["{{base_url}}"],
-							"path": ["habits", "1"]
-						}
-					}
-				},
-				{
-					"name": "Delete Habit",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{access_token}}"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/habits/1",
-							"host": ["{{base_url}}"],
-							"path": ["habits", "1"]
-						}
-					}
-				},
-				{
-					"name": "Log Habit Completion",
+					"name": "Log Habit",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -315,35 +266,12 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"habit_id\": 1,\n    \"completed_at\": \"2024-03-19T10:00:00Z\",\n    \"notes\": \"Completed morning exercise\"\n}"
+							"raw": "{\n    \"habit_id\": 1\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/habits/log",
+							"raw": "{{base_url}}/journal/habits/log",
 							"host": ["{{base_url}}"],
-							"path": ["habits", "log"]
-						}
-					}
-				},
-				{
-					"name": "Get Habit Logs",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{access_token}}"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/habits/log/1?days=30",
-							"host": ["{{base_url}}"],
-							"path": ["habits", "log", "1"],
-							"query": [
-								{
-									"key": "days",
-									"value": "30"
-								}
-							]
+							"path": ["journal", "habits", "log"]
 						}
 					}
 				},
@@ -358,15 +286,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/habits/stats?days=30",
+							"raw": "{{base_url}}/journal/habits/stats",
 							"host": ["{{base_url}}"],
-							"path": ["habits", "stats"],
-							"query": [
-								{
-									"key": "days",
-									"value": "30"
-								}
-							]
+							"path": ["journal", "habits", "stats"]
 						}
 					}
 				}
@@ -391,12 +313,12 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"Learn Python\",\n    \"description\": \"Master Python programming\",\n    \"target_date\": \"2024-12-31\",\n    \"status\": \"not-started\"\n}"
+							"raw": "{\n    \"title\": \"Learn Python\",\n    \"description\": \"Master Python programming\",\n    \"due_date\": \"2024-12-31\",\n    \"status\": \"not-started\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/goals",
+							"raw": "{{base_url}}/journal/goals",
 							"host": ["{{base_url}}"],
-							"path": ["goals"]
+							"path": ["journal", "goals"]
 						}
 					}
 				},
@@ -411,19 +333,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/goals?skip=0&limit=100",
+							"raw": "{{base_url}}/journal/goals",
 							"host": ["{{base_url}}"],
-							"path": ["goals"],
-							"query": [
-								{
-									"key": "skip",
-									"value": "0"
-								},
-								{
-									"key": "limit",
-									"value": "100"
-								}
-							]
+							"path": ["journal", "goals"]
 						}
 					}
 				},
@@ -438,51 +350,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/goals/1",
+							"raw": "{{base_url}}/journal/goals/{id}",
 							"host": ["{{base_url}}"],
-							"path": ["goals", "1"]
-						}
-					}
-				},
-				{
-					"name": "Update Goal",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{access_token}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"title\": \"Updated Goal\",\n    \"description\": \"Updated description\",\n    \"target_date\": \"2024-12-31\",\n    \"status\": \"in-progress\"\n}"
-						},
-						"url": {
-							"raw": "{{base_url}}/goals/1",
-							"host": ["{{base_url}}"],
-							"path": ["goals", "1"]
-						}
-					}
-				},
-				{
-					"name": "Delete Goal",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{access_token}}"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/goals/1",
-							"host": ["{{base_url}}"],
-							"path": ["goals", "1"]
+							"path": ["journal", "goals", "{id}"]
 						}
 					}
 				}
@@ -502,9 +372,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/dashboard/stats?days=30",
+							"raw": "{{base_url}}/journal/dashboard/stats?days=30",
 							"host": ["{{base_url}}"],
-							"path": ["dashboard", "stats"],
+							"path": ["journal", "dashboard", "stats"],
 							"query": [
 								{
 									"key": "days",
@@ -525,9 +395,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/dashboard/sentiment/summary?days=30",
+							"raw": "{{base_url}}/journal/dashboard/sentiment/summary?days=30",
 							"host": ["{{base_url}}"],
-							"path": ["dashboard", "sentiment", "summary"],
+							"path": ["journal", "dashboard", "sentiment", "summary"],
 							"query": [
 								{
 									"key": "days",

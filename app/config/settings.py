@@ -4,7 +4,7 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     PROJECT_NAME: str = "Journal API"
-    API_V1_STR: str = "/api/v1"
+    API_V1_STR: str = "/journal"
     
     # Database settings
     POSTGRES_SERVER: str = os.getenv("POSTGRES_SERVER", "dpg-d0a1571r0fns73e0melg-a.singapore-postgres.render.com:5432")

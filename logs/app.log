@@ -1853,3 +1853,200 @@ FROM journal_entries
 WHERE journal_entries.user_id = %(user_id_1)s AND journal_entries.created_at >= %(created_at_1)s
 2025-05-15 02:17:59,859 - sqlalchemy.engine.Engine - INFO - [cached since 15.63s ago] {'user_id_1': 15, 'created_at_1': datetime.datetime(2025, 4, 14, 20, 47, 59, 726965)}
 2025-05-15 02:17:59,927 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-05-15 12:20:04,800 - root - INFO - Shutting down Journal API
+2025-05-15 12:20:28,738 - sqlalchemy.engine.Engine - INFO - select pg_catalog.version()
+2025-05-15 12:20:28,739 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-05-15 12:20:28,855 - sqlalchemy.engine.Engine - INFO - select current_schema()
+2025-05-15 12:20:28,855 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-05-15 12:20:29,008 - sqlalchemy.engine.Engine - INFO - show standard_conforming_strings
+2025-05-15 12:20:29,008 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-05-15 12:20:29,114 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-05-15 12:20:29,122 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-05-15 12:20:29,123 - sqlalchemy.engine.Engine - INFO - [generated in 0.00089s] {'table_name': 'user_roles', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-05-15 12:20:29,249 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-05-15 12:20:29,249 - sqlalchemy.engine.Engine - INFO - [cached since 0.1272s ago] {'table_name': 'roles', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-05-15 12:20:29,319 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-05-15 12:20:29,320 - sqlalchemy.engine.Engine - INFO - [cached since 0.198s ago] {'table_name': 'users', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-05-15 12:20:29,377 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-05-15 12:20:29,378 - sqlalchemy.engine.Engine - INFO - [cached since 0.2559s ago] {'table_name': 'journal_entries', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-05-15 12:20:29,432 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-05-15 12:20:29,433 - sqlalchemy.engine.Engine - INFO - [cached since 0.3109s ago] {'table_name': 'habits', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-05-15 12:20:29,492 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-05-15 12:20:29,493 - sqlalchemy.engine.Engine - INFO - [cached since 0.371s ago] {'table_name': 'habit_logs', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-05-15 12:20:29,566 - sqlalchemy.engine.Engine - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-05-15 12:20:29,567 - sqlalchemy.engine.Engine - INFO - [cached since 0.4447s ago] {'table_name': 'goals', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-05-15 12:20:29,623 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-05-15 12:20:29,691 - root - INFO - Database tables created successfully
+2025-05-15 12:20:29,727 - root - INFO - Starting up Journal API
+2025-05-15 12:20:29,728 - root - ERROR - Database connection test failed: Not an executable object: 'SELECT 1'
+2025-05-15 12:20:29,785 - root - DEBUG - Stack trace: Traceback (most recent call last):
+  File "C:\Users\kanaka\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 1411, in execute
+    meth = statement._execute_on_connection
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute '_execute_on_connection'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\kanaka\Documents\kannect\kannect-journal-service\app\main.py", line 58, in startup_event
+    conn.execute("SELECT 1")
+    ~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\kanaka\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 1413, in execute
+    raise exc.ObjectNotExecutableError(statement) from err
+sqlalchemy.exc.ObjectNotExecutableError: Not an executable object: 'SELECT 1'
+
+2025-05-15 12:27:04,826 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-05-15 12:27:04,834 - sqlalchemy.engine.Engine - INFO - SELECT anon_1.users_id AS anon_1_users_id, anon_1.users_email AS anon_1_users_email, anon_1.users_user_name AS anon_1_users_user_name, anon_1.users_password AS anon_1_users_password, anon_1.users_first_name AS anon_1_users_first_name, anon_1.users_last_name AS anon_1_users_last_name, anon_1.users_department AS anon_1_users_department, anon_1.users_tech_stack AS anon_1_users_tech_stack, anon_1.users_profile_photo_url AS anon_1_users_profile_photo_url, anon_1.users_active AS anon_1_users_active, anon_1.users_wallet_balance AS anon_1_users_wallet_balance, anon_1.users_last_login AS anon_1_users_last_login, roles_1.id AS roles_1_id, roles_1.role_name AS roles_1_role_name 
+FROM (SELECT users.id AS users_id, users.email AS users_email, users.user_name AS users_user_name, users.password AS users_password, users.first_name AS users_first_name, users.last_name AS users_last_name, users.department AS users_department, users.tech_stack AS users_tech_stack, users.profile_photo_url AS users_profile_photo_url, users.active AS users_active, users.wallet_balance AS users_wallet_balance, users.last_login AS users_last_login 
+FROM users 
+WHERE users.email = %(email_1)s 
+ LIMIT %(param_1)s) AS anon_1 LEFT OUTER JOIN (user_roles AS user_roles_1 JOIN roles AS roles_1 ON roles_1.id = user_roles_1.role_id) ON anon_1.users_id = user_roles_1.user_id
+2025-05-15 12:27:04,835 - sqlalchemy.engine.Engine - INFO - [generated in 0.00088s] {'email_1': 'shreyas', 'param_1': 1}
+2025-05-15 12:27:04,959 - sqlalchemy.engine.Engine - INFO - SELECT anon_1.users_id AS anon_1_users_id, anon_1.users_email AS anon_1_users_email, anon_1.users_user_name AS anon_1_users_user_name, anon_1.users_password AS anon_1_users_password, anon_1.users_first_name AS anon_1_users_first_name, anon_1.users_last_name AS anon_1_users_last_name, anon_1.users_department AS anon_1_users_department, anon_1.users_tech_stack AS anon_1_users_tech_stack, anon_1.users_profile_photo_url AS anon_1_users_profile_photo_url, anon_1.users_active AS anon_1_users_active, anon_1.users_wallet_balance AS anon_1_users_wallet_balance, anon_1.users_last_login AS anon_1_users_last_login, roles_1.id AS roles_1_id, roles_1.role_name AS roles_1_role_name 
+FROM (SELECT users.id AS users_id, users.email AS users_email, users.user_name AS users_user_name, users.password AS users_password, users.first_name AS users_first_name, users.last_name AS users_last_name, users.department AS users_department, users.tech_stack AS users_tech_stack, users.profile_photo_url AS users_profile_photo_url, users.active AS users_active, users.wallet_balance AS users_wallet_balance, users.last_login AS users_last_login 
+FROM users 
+WHERE users.user_name = %(user_name_1)s 
+ LIMIT %(param_1)s) AS anon_1 LEFT OUTER JOIN (user_roles AS user_roles_1 JOIN roles AS roles_1 ON roles_1.id = user_roles_1.role_id) ON anon_1.users_id = user_roles_1.user_id
+2025-05-15 12:27:04,960 - sqlalchemy.engine.Engine - INFO - [generated in 0.00144s] {'user_name_1': 'shreyas', 'param_1': 1}
+2025-05-15 12:27:05,040 - sqlalchemy.engine.Engine - INFO - SELECT roles.id AS roles_id, roles.role_name AS roles_role_name 
+FROM roles 
+WHERE roles.role_name = %(role_name_1)s 
+ LIMIT %(param_1)s
+2025-05-15 12:27:05,041 - sqlalchemy.engine.Engine - INFO - [generated in 0.00095s] {'role_name_1': 'ROLE_ADMIN', 'param_1': 1}
+2025-05-15 12:27:05,099 - sqlalchemy.engine.Engine - INFO - UPDATE users SET last_login=%(last_login)s WHERE users.id = %(users_id)s
+2025-05-15 12:27:05,100 - sqlalchemy.engine.Engine - INFO - [generated in 0.00071s] {'last_login': datetime.datetime(2025, 5, 15, 6, 57, 5, 38163), 'users_id': 15}
+2025-05-15 12:27:05,154 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-05-15 12:27:05,211 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-05-15 12:27:05,215 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.email AS users_email, users.user_name AS users_user_name, users.password AS users_password, users.first_name AS users_first_name, users.last_name AS users_last_name, users.department AS users_department, users.tech_stack AS users_tech_stack, users.profile_photo_url AS users_profile_photo_url, users.active AS users_active, users.wallet_balance AS users_wallet_balance, users.last_login AS users_last_login, roles_1.id AS roles_1_id, roles_1.role_name AS roles_1_role_name 
+FROM users LEFT OUTER JOIN (user_roles AS user_roles_1 JOIN roles AS roles_1 ON roles_1.id = user_roles_1.role_id) ON users.id = user_roles_1.user_id 
+WHERE users.id = %(pk_1)s
+2025-05-15 12:27:05,216 - sqlalchemy.engine.Engine - INFO - [generated in 0.00067s] {'pk_1': 15}
+2025-05-15 12:27:05,330 - app.services.journal - INFO - Fetching journal entries for user 15 (skip=0, limit=100)
+2025-05-15 12:27:05,335 - sqlalchemy.engine.Engine - INFO - SELECT journal_entries.id AS journal_entries_id, journal_entries.user_id AS journal_entries_user_id, journal_entries.content AS journal_entries_content, journal_entries.sentiment_score AS journal_entries_sentiment_score, journal_entries.sentiment_label AS journal_entries_sentiment_label, journal_entries.created_at AS journal_entries_created_at, journal_entries.updated_at AS journal_entries_updated_at 
+FROM journal_entries 
+WHERE journal_entries.user_id = %(user_id_1)s ORDER BY journal_entries.created_at DESC 
+ LIMIT %(param_1)s OFFSET %(param_2)s
+2025-05-15 12:27:05,336 - sqlalchemy.engine.Engine - INFO - [generated in 0.00069s] {'user_id_1': 15, 'param_1': 100, 'param_2': 0}
+2025-05-15 12:27:05,398 - app.services.journal - INFO - Found 1 journal entries
+2025-05-15 12:27:05,400 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-05-15 12:28:27,390 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-05-15 12:28:27,391 - sqlalchemy.engine.Engine - INFO - SELECT anon_1.users_id AS anon_1_users_id, anon_1.users_email AS anon_1_users_email, anon_1.users_user_name AS anon_1_users_user_name, anon_1.users_password AS anon_1_users_password, anon_1.users_first_name AS anon_1_users_first_name, anon_1.users_last_name AS anon_1_users_last_name, anon_1.users_department AS anon_1_users_department, anon_1.users_tech_stack AS anon_1_users_tech_stack, anon_1.users_profile_photo_url AS anon_1_users_profile_photo_url, anon_1.users_active AS anon_1_users_active, anon_1.users_wallet_balance AS anon_1_users_wallet_balance, anon_1.users_last_login AS anon_1_users_last_login, roles_1.id AS roles_1_id, roles_1.role_name AS roles_1_role_name 
+FROM (SELECT users.id AS users_id, users.email AS users_email, users.user_name AS users_user_name, users.password AS users_password, users.first_name AS users_first_name, users.last_name AS users_last_name, users.department AS users_department, users.tech_stack AS users_tech_stack, users.profile_photo_url AS users_profile_photo_url, users.active AS users_active, users.wallet_balance AS users_wallet_balance, users.last_login AS users_last_login 
+FROM users 
+WHERE users.email = %(email_1)s 
+ LIMIT %(param_1)s) AS anon_1 LEFT OUTER JOIN (user_roles AS user_roles_1 JOIN roles AS roles_1 ON roles_1.id = user_roles_1.role_id) ON anon_1.users_id = user_roles_1.user_id
+2025-05-15 12:28:27,391 - sqlalchemy.engine.Engine - INFO - [cached since 82.56s ago] {'email_1': 'shreyas', 'param_1': 1}
+2025-05-15 12:28:27,512 - sqlalchemy.engine.Engine - INFO - SELECT anon_1.users_id AS anon_1_users_id, anon_1.users_email AS anon_1_users_email, anon_1.users_user_name AS anon_1_users_user_name, anon_1.users_password AS anon_1_users_password, anon_1.users_first_name AS anon_1_users_first_name, anon_1.users_last_name AS anon_1_users_last_name, anon_1.users_department AS anon_1_users_department, anon_1.users_tech_stack AS anon_1_users_tech_stack, anon_1.users_profile_photo_url AS anon_1_users_profile_photo_url, anon_1.users_active AS anon_1_users_active, anon_1.users_wallet_balance AS anon_1_users_wallet_balance, anon_1.users_last_login AS anon_1_users_last_login, roles_1.id AS roles_1_id, roles_1.role_name AS roles_1_role_name 
+FROM (SELECT users.id AS users_id, users.email AS users_email, users.user_name AS users_user_name, users.password AS users_password, users.first_name AS users_first_name, users.last_name AS users_last_name, users.department AS users_department, users.tech_stack AS users_tech_stack, users.profile_photo_url AS users_profile_photo_url, users.active AS users_active, users.wallet_balance AS users_wallet_balance, users.last_login AS users_last_login 
+FROM users 
+WHERE users.user_name = %(user_name_1)s 
+ LIMIT %(param_1)s) AS anon_1 LEFT OUTER JOIN (user_roles AS user_roles_1 JOIN roles AS roles_1 ON roles_1.id = user_roles_1.role_id) ON anon_1.users_id = user_roles_1.user_id
+2025-05-15 12:28:27,512 - sqlalchemy.engine.Engine - INFO - [cached since 82.55s ago] {'user_name_1': 'shreyas', 'param_1': 1}
+2025-05-15 12:28:27,581 - sqlalchemy.engine.Engine - INFO - SELECT roles.id AS roles_id, roles.role_name AS roles_role_name 
+FROM roles 
+WHERE roles.role_name = %(role_name_1)s 
+ LIMIT %(param_1)s
+2025-05-15 12:28:27,581 - sqlalchemy.engine.Engine - INFO - [cached since 82.54s ago] {'role_name_1': 'ROLE_ADMIN', 'param_1': 1}
+2025-05-15 12:28:27,643 - sqlalchemy.engine.Engine - INFO - UPDATE users SET last_login=%(last_login)s WHERE users.id = %(users_id)s
+2025-05-15 12:28:27,643 - sqlalchemy.engine.Engine - INFO - [cached since 82.54s ago] {'last_login': datetime.datetime(2025, 5, 15, 6, 58, 27, 580698), 'users_id': 15}
+2025-05-15 12:28:27,702 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-05-15 12:28:27,761 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-05-15 12:28:27,762 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.email AS users_email, users.user_name AS users_user_name, users.password AS users_password, users.first_name AS users_first_name, users.last_name AS users_last_name, users.department AS users_department, users.tech_stack AS users_tech_stack, users.profile_photo_url AS users_profile_photo_url, users.active AS users_active, users.wallet_balance AS users_wallet_balance, users.last_login AS users_last_login, roles_1.id AS roles_1_id, roles_1.role_name AS roles_1_role_name 
+FROM users LEFT OUTER JOIN (user_roles AS user_roles_1 JOIN roles AS roles_1 ON roles_1.id = user_roles_1.role_id) ON users.id = user_roles_1.user_id 
+WHERE users.id = %(pk_1)s
+2025-05-15 12:28:27,763 - sqlalchemy.engine.Engine - INFO - [cached since 82.55s ago] {'pk_1': 15}
+2025-05-15 12:28:27,877 - sqlalchemy.engine.Engine - INFO - SELECT habits.id AS habits_id, habits.user_id AS habits_user_id, habits.name AS habits_name, habits.description AS habits_description, habits.frequency AS habits_frequency, habits.created_at AS habits_created_at 
+FROM habits 
+WHERE habits.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s OFFSET %(param_2)s
+2025-05-15 12:28:27,878 - sqlalchemy.engine.Engine - INFO - [generated in 0.00076s] {'user_id_1': 15, 'param_1': 100, 'param_2': 0}
+2025-05-15 12:28:27,932 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-05-15 12:28:43,626 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-05-15 12:28:43,627 - sqlalchemy.engine.Engine - INFO - SELECT anon_1.users_id AS anon_1_users_id, anon_1.users_email AS anon_1_users_email, anon_1.users_user_name AS anon_1_users_user_name, anon_1.users_password AS anon_1_users_password, anon_1.users_first_name AS anon_1_users_first_name, anon_1.users_last_name AS anon_1_users_last_name, anon_1.users_department AS anon_1_users_department, anon_1.users_tech_stack AS anon_1_users_tech_stack, anon_1.users_profile_photo_url AS anon_1_users_profile_photo_url, anon_1.users_active AS anon_1_users_active, anon_1.users_wallet_balance AS anon_1_users_wallet_balance, anon_1.users_last_login AS anon_1_users_last_login, roles_1.id AS roles_1_id, roles_1.role_name AS roles_1_role_name 
+FROM (SELECT users.id AS users_id, users.email AS users_email, users.user_name AS users_user_name, users.password AS users_password, users.first_name AS users_first_name, users.last_name AS users_last_name, users.department AS users_department, users.tech_stack AS users_tech_stack, users.profile_photo_url AS users_profile_photo_url, users.active AS users_active, users.wallet_balance AS users_wallet_balance, users.last_login AS users_last_login 
+FROM users 
+WHERE users.email = %(email_1)s 
+ LIMIT %(param_1)s) AS anon_1 LEFT OUTER JOIN (user_roles AS user_roles_1 JOIN roles AS roles_1 ON roles_1.id = user_roles_1.role_id) ON anon_1.users_id = user_roles_1.user_id
+2025-05-15 12:28:43,628 - sqlalchemy.engine.Engine - INFO - [cached since 98.79s ago] {'email_1': 'shreyas', 'param_1': 1}
+2025-05-15 12:28:43,741 - sqlalchemy.engine.Engine - INFO - SELECT anon_1.users_id AS anon_1_users_id, anon_1.users_email AS anon_1_users_email, anon_1.users_user_name AS anon_1_users_user_name, anon_1.users_password AS anon_1_users_password, anon_1.users_first_name AS anon_1_users_first_name, anon_1.users_last_name AS anon_1_users_last_name, anon_1.users_department AS anon_1_users_department, anon_1.users_tech_stack AS anon_1_users_tech_stack, anon_1.users_profile_photo_url AS anon_1_users_profile_photo_url, anon_1.users_active AS anon_1_users_active, anon_1.users_wallet_balance AS anon_1_users_wallet_balance, anon_1.users_last_login AS anon_1_users_last_login, roles_1.id AS roles_1_id, roles_1.role_name AS roles_1_role_name 
+FROM (SELECT users.id AS users_id, users.email AS users_email, users.user_name AS users_user_name, users.password AS users_password, users.first_name AS users_first_name, users.last_name AS users_last_name, users.department AS users_department, users.tech_stack AS users_tech_stack, users.profile_photo_url AS users_profile_photo_url, users.active AS users_active, users.wallet_balance AS users_wallet_balance, users.last_login AS users_last_login 
+FROM users 
+WHERE users.user_name = %(user_name_1)s 
+ LIMIT %(param_1)s) AS anon_1 LEFT OUTER JOIN (user_roles AS user_roles_1 JOIN roles AS roles_1 ON roles_1.id = user_roles_1.role_id) ON anon_1.users_id = user_roles_1.user_id
+2025-05-15 12:28:43,742 - sqlalchemy.engine.Engine - INFO - [cached since 98.78s ago] {'user_name_1': 'shreyas', 'param_1': 1}
+2025-05-15 12:28:43,801 - sqlalchemy.engine.Engine - INFO - SELECT roles.id AS roles_id, roles.role_name AS roles_role_name 
+FROM roles 
+WHERE roles.role_name = %(role_name_1)s 
+ LIMIT %(param_1)s
+2025-05-15 12:28:43,802 - sqlalchemy.engine.Engine - INFO - [cached since 98.76s ago] {'role_name_1': 'ROLE_ADMIN', 'param_1': 1}
+2025-05-15 12:28:43,860 - sqlalchemy.engine.Engine - INFO - UPDATE users SET last_login=%(last_login)s WHERE users.id = %(users_id)s
+2025-05-15 12:28:43,861 - sqlalchemy.engine.Engine - INFO - [cached since 98.76s ago] {'last_login': datetime.datetime(2025, 5, 15, 6, 58, 43, 801109), 'users_id': 15}
+2025-05-15 12:28:43,917 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-05-15 12:28:43,974 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-05-15 12:28:43,975 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.email AS users_email, users.user_name AS users_user_name, users.password AS users_password, users.first_name AS users_first_name, users.last_name AS users_last_name, users.department AS users_department, users.tech_stack AS users_tech_stack, users.profile_photo_url AS users_profile_photo_url, users.active AS users_active, users.wallet_balance AS users_wallet_balance, users.last_login AS users_last_login, roles_1.id AS roles_1_id, roles_1.role_name AS roles_1_role_name 
+FROM users LEFT OUTER JOIN (user_roles AS user_roles_1 JOIN roles AS roles_1 ON roles_1.id = user_roles_1.role_id) ON users.id = user_roles_1.user_id 
+WHERE users.id = %(pk_1)s
+2025-05-15 12:28:43,976 - sqlalchemy.engine.Engine - INFO - [cached since 98.76s ago] {'pk_1': 15}
+2025-05-15 12:28:44,085 - sqlalchemy.engine.Engine - INFO - SELECT goals.id AS goals_id, goals.user_id AS goals_user_id, goals.title AS goals_title, goals.description AS goals_description, goals.due_date AS goals_due_date, goals.status AS goals_status, goals.created_at AS goals_created_at, goals.updated_at AS goals_updated_at 
+FROM goals 
+WHERE goals.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s OFFSET %(param_2)s
+2025-05-15 12:28:44,086 - sqlalchemy.engine.Engine - INFO - [generated in 0.00064s] {'user_id_1': 15, 'param_1': 100, 'param_2': 0}
+2025-05-15 12:28:44,139 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-05-15 12:29:01,299 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-05-15 12:29:01,300 - sqlalchemy.engine.Engine - INFO - SELECT anon_1.users_id AS anon_1_users_id, anon_1.users_email AS anon_1_users_email, anon_1.users_user_name AS anon_1_users_user_name, anon_1.users_password AS anon_1_users_password, anon_1.users_first_name AS anon_1_users_first_name, anon_1.users_last_name AS anon_1_users_last_name, anon_1.users_department AS anon_1_users_department, anon_1.users_tech_stack AS anon_1_users_tech_stack, anon_1.users_profile_photo_url AS anon_1_users_profile_photo_url, anon_1.users_active AS anon_1_users_active, anon_1.users_wallet_balance AS anon_1_users_wallet_balance, anon_1.users_last_login AS anon_1_users_last_login, roles_1.id AS roles_1_id, roles_1.role_name AS roles_1_role_name 
+FROM (SELECT users.id AS users_id, users.email AS users_email, users.user_name AS users_user_name, users.password AS users_password, users.first_name AS users_first_name, users.last_name AS users_last_name, users.department AS users_department, users.tech_stack AS users_tech_stack, users.profile_photo_url AS users_profile_photo_url, users.active AS users_active, users.wallet_balance AS users_wallet_balance, users.last_login AS users_last_login 
+FROM users 
+WHERE users.email = %(email_1)s 
+ LIMIT %(param_1)s) AS anon_1 LEFT OUTER JOIN (user_roles AS user_roles_1 JOIN roles AS roles_1 ON roles_1.id = user_roles_1.role_id) ON anon_1.users_id = user_roles_1.user_id
+2025-05-15 12:29:01,301 - sqlalchemy.engine.Engine - INFO - [cached since 116.5s ago] {'email_1': 'shreyas', 'param_1': 1}
+2025-05-15 12:29:01,461 - sqlalchemy.engine.Engine - INFO - SELECT anon_1.users_id AS anon_1_users_id, anon_1.users_email AS anon_1_users_email, anon_1.users_user_name AS anon_1_users_user_name, anon_1.users_password AS anon_1_users_password, anon_1.users_first_name AS anon_1_users_first_name, anon_1.users_last_name AS anon_1_users_last_name, anon_1.users_department AS anon_1_users_department, anon_1.users_tech_stack AS anon_1_users_tech_stack, anon_1.users_profile_photo_url AS anon_1_users_profile_photo_url, anon_1.users_active AS anon_1_users_active, anon_1.users_wallet_balance AS anon_1_users_wallet_balance, anon_1.users_last_login AS anon_1_users_last_login, roles_1.id AS roles_1_id, roles_1.role_name AS roles_1_role_name 
+FROM (SELECT users.id AS users_id, users.email AS users_email, users.user_name AS users_user_name, users.password AS users_password, users.first_name AS users_first_name, users.last_name AS users_last_name, users.department AS users_department, users.tech_stack AS users_tech_stack, users.profile_photo_url AS users_profile_photo_url, users.active AS users_active, users.wallet_balance AS users_wallet_balance, users.last_login AS users_last_login 
+FROM users 
+WHERE users.user_name = %(user_name_1)s 
+ LIMIT %(param_1)s) AS anon_1 LEFT OUTER JOIN (user_roles AS user_roles_1 JOIN roles AS roles_1 ON roles_1.id = user_roles_1.role_id) ON anon_1.users_id = user_roles_1.user_id
+2025-05-15 12:29:01,461 - sqlalchemy.engine.Engine - INFO - [cached since 116.5s ago] {'user_name_1': 'shreyas', 'param_1': 1}
+2025-05-15 12:29:01,529 - sqlalchemy.engine.Engine - INFO - SELECT roles.id AS roles_id, roles.role_name AS roles_role_name 
+FROM roles 
+WHERE roles.role_name = %(role_name_1)s 
+ LIMIT %(param_1)s
+2025-05-15 12:29:01,530 - sqlalchemy.engine.Engine - INFO - [cached since 116.5s ago] {'role_name_1': 'ROLE_ADMIN', 'param_1': 1}
+2025-05-15 12:29:01,589 - sqlalchemy.engine.Engine - INFO - UPDATE users SET last_login=%(last_login)s WHERE users.id = %(users_id)s
+2025-05-15 12:29:01,590 - sqlalchemy.engine.Engine - INFO - [cached since 116.5s ago] {'last_login': datetime.datetime(2025, 5, 15, 6, 59, 1, 529301), 'users_id': 15}
+2025-05-15 12:29:01,646 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-05-15 12:29:01,720 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-05-15 12:29:01,721 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.email AS users_email, users.user_name AS users_user_name, users.password AS users_password, users.first_name AS users_first_name, users.last_name AS users_last_name, users.department AS users_department, users.tech_stack AS users_tech_stack, users.profile_photo_url AS users_profile_photo_url, users.active AS users_active, users.wallet_balance AS users_wallet_balance, users.last_login AS users_last_login, roles_1.id AS roles_1_id, roles_1.role_name AS roles_1_role_name 
+FROM users LEFT OUTER JOIN (user_roles AS user_roles_1 JOIN roles AS roles_1 ON roles_1.id = user_roles_1.role_id) ON users.id = user_roles_1.user_id 
+WHERE users.id = %(pk_1)s
+2025-05-15 12:29:01,723 - sqlalchemy.engine.Engine - INFO - [cached since 116.5s ago] {'pk_1': 15}
+2025-05-15 12:29:01,837 - sqlalchemy.engine.Engine - INFO - SELECT journal_entries.id AS journal_entries_id, journal_entries.user_id AS journal_entries_user_id, journal_entries.content AS journal_entries_content, journal_entries.sentiment_score AS journal_entries_sentiment_score, journal_entries.sentiment_label AS journal_entries_sentiment_label, journal_entries.created_at AS journal_entries_created_at, journal_entries.updated_at AS journal_entries_updated_at 
+FROM journal_entries 
+WHERE journal_entries.user_id = %(user_id_1)s AND journal_entries.created_at >= %(created_at_1)s
+2025-05-15 12:29:01,838 - sqlalchemy.engine.Engine - INFO - [generated in 0.00086s] {'user_id_1': 15, 'created_at_1': datetime.datetime(2025, 4, 15, 6, 59, 1, 719646)}
+2025-05-15 12:29:01,902 - sqlalchemy.engine.Engine - INFO - SELECT habits.id AS habits_id, habits.user_id AS habits_user_id, habits.name AS habits_name, habits.description AS habits_description, habits.frequency AS habits_frequency, habits.created_at AS habits_created_at 
+FROM habits 
+WHERE habits.user_id = %(user_id_1)s
+2025-05-15 12:29:01,902 - sqlalchemy.engine.Engine - INFO - [generated in 0.00082s] {'user_id_1': 15}
+2025-05-15 12:29:01,963 - sqlalchemy.engine.Engine - INFO - SELECT habit_logs.id AS habit_logs_id, habit_logs.habit_id AS habit_logs_habit_id, habit_logs.completed_at AS habit_logs_completed_at, habit_logs.notes AS habit_logs_notes 
+FROM habit_logs 
+WHERE habit_logs.habit_id IN (%(habit_id_1_1)s) AND habit_logs.completed_at >= %(completed_at_1)s
+2025-05-15 12:29:01,964 - sqlalchemy.engine.Engine - INFO - [generated in 0.00086s] {'completed_at_1': datetime.datetime(2025, 4, 15, 6, 59, 1, 719646), 'habit_id_1_1': 1}
+2025-05-15 12:29:02,019 - sqlalchemy.engine.Engine - INFO - SELECT goals.id AS goals_id, goals.user_id AS goals_user_id, goals.title AS goals_title, goals.description AS goals_description, goals.due_date AS goals_due_date, goals.status AS goals_status, goals.created_at AS goals_created_at, goals.updated_at AS goals_updated_at 
+FROM goals 
+WHERE goals.user_id = %(user_id_1)s AND goals.created_at >= %(created_at_1)s
+2025-05-15 12:29:02,020 - sqlalchemy.engine.Engine - INFO - [generated in 0.00083s] {'user_id_1': 15, 'created_at_1': datetime.datetime(2025, 4, 15, 6, 59, 1, 719646)}
+2025-05-15 12:29:02,086 - sqlalchemy.engine.Engine - INFO - ROLLBACK
