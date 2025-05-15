@@ -6,6 +6,7 @@ from app.core.exceptions import add_exception_handlers
 from app.db.base import Base
 from app.db.session import engine
 from app.core.logging import setup_logging
+from sqlalchemy import text
 import logging
 import traceback
 
@@ -55,7 +56,7 @@ async def startup_event():
     try:
         # Test database connection
         with engine.connect() as conn:
-            conn.execute("SELECT 1")
+            conn.execute(text("SELECT 1"))
         logger.info("Database connection test successful")
     except Exception as e:
         logger.error(f"Database connection test failed: {str(e)}")
