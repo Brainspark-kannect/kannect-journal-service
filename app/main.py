@@ -56,7 +56,8 @@ async def startup_event():
     try:
         # Test database connection
         with engine.connect() as conn:
-            conn.execute(text("SELECT 1"))
+            result = conn.execute(text("SELECT 1"))
+            result.scalar()
         logger.info("Database connection test successful")
     except Exception as e:
         logger.error(f"Database connection test failed: {str(e)}")

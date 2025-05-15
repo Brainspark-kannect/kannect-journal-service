@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  journal-service:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_SERVER=dpg-d0a1571r0fns73e0melg-a.singapore-postgres.render.com:5432
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=pAdo1Zeme66SHatZmtFnpF9CFklo2Ugx
+      - POSTGRES_DB=kannectdb
+      - JWT_SECRET=your_jwt_secret_key
+      - DEBUG=true
+    networks:
+      - kannect-network
+    volumes:
+      - ./app:/app/app
+    restart: unless-stopped
+
+networks:
+  kannect-network:
+    driver: bridge 
