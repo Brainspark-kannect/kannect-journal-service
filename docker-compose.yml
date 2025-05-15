@@ -10,8 +10,11 @@ services:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=pAdo1Zeme66SHatZmtFnpF9CFklo2Ugx
       - POSTGRES_DB=kannectdb
-      - JWT_SECRET=your_jwt_secret_key
-      - DEBUG=true
+      - JWT_SECRET=2e23d7dc-3ab6-4fcd-b698-ede98aab8539
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      - DEBUG=True
+      - NLP_MODEL=en_core_web_sm
     networks:
       - kannect-network
     volumes:
